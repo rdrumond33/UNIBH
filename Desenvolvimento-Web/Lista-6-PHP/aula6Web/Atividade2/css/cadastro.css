@@ -1,0 +1,42 @@
+
+body{
+    padding: 0;
+    margin: 0;
+ 
+}
+
+#coluna1 { float:left; }
+#coluna2 { width:50%; float:right; }
+.clearfix { clear:both; }
+
+section{
+    overflow: auto;
+}
+
+header{
+border: 1px solid black;
+background: #45543f;
+text-align: center;
+margin: 0 0 100px 0;}
+
+h3{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+input{
+    margin-bottom: 5px;
+}
+button{
+    color: white;
+    background-color: #45543f; 
+    margin-left: 300px;
+}
+
+#campo1{
+ margin-left: 300px;
+ margin-right: 20px;
+    float: left;
+}
+#campo2{
+    float: left;
+}

@@ -1,0 +1,27 @@
+body{
+    padding: 0;
+    margin: 0;
+ 
+}
+section{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+header{
+border: 1px solid black;
+background: #45543f;
+text-align: center;
+margin: 0 0 100px 0;}
+h3{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+input{
+    margin-bottom: 5px;
+}
+button{
+    color: white;
+    background-color: #45543f; 
+    margin-left: 5px;
+}

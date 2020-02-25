@@ -109,6 +109,7 @@ lint/tmp/
 # lint/reports/
 
 .directory
+node_modules/
 /Object-Oriented-Programming/Classe_Abstrata/ClasseAbstrata/nbproject/private/
 /Object-Oriented-Programming/Classe_Abstrata/ClasseAbstrata/build/
 /Object-Oriented-Programming/ClasseAbstrata/ClasseAbstrata/build/
