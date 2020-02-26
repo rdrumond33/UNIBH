@@ -1,4 +1,5 @@
-package árvore.binária.de.pesquia;
+package аrvoreBinаriaDePesquia;
+
 
 /**
  *

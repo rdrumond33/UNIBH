@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package implementação_de_grafos;
+package implementacao_de_grafos;
 
 import java.util.ArrayList;
 

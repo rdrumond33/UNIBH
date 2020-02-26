@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package implementação_de_grafos;
+package implementacao_de_grafos;
 
 /**
  *
  * @author Rodrigo Drumond
  */
-public class Implementação_de_Grafos {
+public class Implementacao_de_Grafos {
 
     /**
      * @param args the command line arguments
