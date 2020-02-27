@@ -2,6 +2,8 @@
 
 Translated into [english](https://github.com/rdrumond33/UNIBH/tree/master/English)
 
+Este repositorio contem alguns projetos encontrados que fiz nos semetres.
+
 ## Algoritmos E Estrutura De Dados
 
 Uma estrutura de dados **(ED)**, em ciência da computação, é uma coleção tanto de valores quanto de operações. É uma implementação concreta de um tipo abstrato de dado **(TAD)** ou um tipo de dado **(TD)** básico ou primitivo. Assim, o termo ED pode ser considerado sinônimo de TD, se considerado TAD um hipônimo de TD, isto é, se um TAD for um TD.
