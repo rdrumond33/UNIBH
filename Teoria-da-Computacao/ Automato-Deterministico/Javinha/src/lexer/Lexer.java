@@ -339,7 +339,7 @@ public class Lexer {
 
     public static void main(String[] args) {
         
-        Lexer lexer = new Lexer("HelloJavinha.jvn"); // parametro eh um programa em Javinha
+        Lexer lexer = new Lexer("HelloJavinhaComErro.jvn"); // parametro eh um programa em Javinha
         Token token;
 
         // cria o objeto Tabela de Simbolos para inserir todas as palavras
