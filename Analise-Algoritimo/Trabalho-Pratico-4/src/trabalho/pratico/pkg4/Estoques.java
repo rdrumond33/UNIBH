@@ -13,7 +13,7 @@ public class Estoques {
 
     private ArvoreBinariaProdutos estoque;
 
-    public Estoques() {
+    Estoques() {
         this.estoque = new ArvoreBinariaProdutos();
     }
 
@@ -21,6 +21,7 @@ public class Estoques {
         this.estoque = estoque;
     }
 
+    
     public void ordenar(){
         this.estoque = this.estoque.ordenarQuickShort();
     }

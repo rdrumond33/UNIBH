@@ -1,0 +1,14 @@
+Grupo:
+Rodrigo Drumond de Paula RA:11623863
+Leonora de Oliveira Rocha RA: 117115359
+Luiz Henrique Cardoso Ra:11621853
+
+quickSort:
+Melhor Caso: n
+Medio Caso: n^2+n/2
+Pior Caso: n^2
+
+ordenarQuickShort:
+Melhor Caso: 2n
+Medio Caso: (n*(2n+n))/2
+Pior Caso: n^2+n

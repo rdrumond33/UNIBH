@@ -1,20 +1,23 @@
 package trabalho.pratico.pkg4;
 
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author rdrumond
  */
 public class ArvoreBinariaClientes {
+
     private NoClientes Raiz;
     private int interacao;
     public int interacoesMoviemntacao;
-    
+    private ArrayList<Clientes> clone_clientes;
+
     public ArvoreBinariaClientes() {
         this.Raiz = null;
     }
@@ -22,28 +25,28 @@ public class ArvoreBinariaClientes {
     public boolean Vazia() {
         return this.Raiz == null;
     }
+
     public void Insere(Clientes cliente) {
         this.Raiz = this.Insere(cliente, this.Raiz);
     }
-     
+
     private NoClientes Insere(Clientes cliente, NoClientes p) {
         if (p == null) {
-            p = new NoClientes(cliente); 
+            p = new NoClientes(cliente);
         } else if (cliente.getCodigo_unico() < p.getCliente().getCodigo_unico()) {
             p.setEsquerda(Insere(cliente, p.getEsquerda()));
-        } else if (cliente.getCodigo_unico()  > p.getCliente().getCodigo_unico()) {
+        } else if (cliente.getCodigo_unico() > p.getCliente().getCodigo_unico()) {
             p.setDireita(Insere(cliente, p.getDireita()));
         } else {
             System.out.println("Erro: Id já pertence a algum livro.");
         }
         return p;
     }
-  
-     
+
     // melhor caso: 1 
     // medio caso: n+2?2
     // pior caso: n + 1
-     public Clientes Buscar(int cod) {
+    public Clientes Buscar(int cod) {
         NoClientes cliente;
         this.interacao = 0;
         if (this.Raiz.getCliente().getCodigo_unico() == cod) {
@@ -76,7 +79,7 @@ public class ArvoreBinariaClientes {
         }
         return no_produto;
     }
- 
+
     private NoClientes BuscarDireita(int cod, NoClientes no) {
         NoClientes no_produto;
         if (no != null) {
@@ -97,7 +100,7 @@ public class ArvoreBinariaClientes {
     private NoClientes BuscarEsquerda(int cod, NoClientes no) {
         NoClientes no_produto;
 
-        if (no != null) { 
+        if (no != null) {
             this.interacao++;
             if (no.getCliente().getCodigo_unico() == cod) {
                 return no;
@@ -110,7 +113,6 @@ public class ArvoreBinariaClientes {
         return no;
     }
 
-     
     // o(n) melhor, pior, medio caso  
     private void CaminhamentoCentral(NoClientes R) {
         if (R == null) {
@@ -120,7 +122,7 @@ public class ArvoreBinariaClientes {
         if (R.getEsquerda() != null) {
             CaminhamentoCentral(R.getEsquerda());
         }
-        System.out.print(R.getCliente().getCodigo_unico()+",");
+        System.out.print(R.getCliente().getCodigo_unico() + ",");
         if (R.getDireita() != null) {
             CaminhamentoCentral(R.getDireita());
         }
@@ -155,8 +157,8 @@ public class ArvoreBinariaClientes {
     public NoClientes getRaiz() {
         return Raiz;
     }
-    
-  // Complexidade 2n-1+n-1=3n-2
+
+    // Complexidade 2n-1+n-1=3n-2
     private NoClientes antecessor(NoClientes q, NoClientes r) {
         if (r.getDireita() != null) {
             // 2n-1
@@ -168,7 +170,6 @@ public class ArvoreBinariaClientes {
         }
         return r;
     }
-    
 
     // Melhor caso: O(n)
     // Medio caso: O(n)
@@ -189,35 +190,50 @@ public class ArvoreBinariaClientes {
                 p.setEsquerda(antecessor(p, p.getEsquerda()));
             }
         }
-        this.interacoesMoviemntacao ++;
+        this.interacoesMoviemntacao++;
         return p;
     }
+
     // Complexidade do codigo e de n
     public void retira(int cod) {
         this.interacoesMoviemntacao = 0;
         this.Raiz = this.retira(cod, this.Raiz);
     }
 
+    public ArrayList<Clientes> clone() {
+        this.clone_clientes = new ArrayList();
+        if (this.Raiz == null) {
+            System.out.println("Árvore vazia");
+            return null;
+        } else {
+            this.clone_clientes.add(this.Raiz.getCliente());
+            clone(this.Raiz);
+        }
+        return this.clone_clientes;
+    }
+
+    private void clone(NoClientes no) {
+        if (no.getEsquerda() != null) {
+            this.clone_clientes.add(no.getEsquerda().getCliente());
+            clone(no.getEsquerda());
+        }
+
+        if (no.getDireita() != null) {
+            this.clone_clientes.add(no.getDireita().getCliente());
+            clone(no.getDireita());
+        }
+
+    }
+
     public void printTree() {
         if (this.Raiz == null) {
             System.out.println("Árvore vazia");
         } else {
-            int nivel = 0;
-            printTree(this.Raiz, nivel);
+            ArrayList<Clientes> c = clone();
+            for (Clientes p : c) {
+                System.out.println("Codigo: " + p.getCodigo_unico() + " Nome: " + p.getNome() + " Rua: " + p.getRua() + " cpf: " + p.getCpf());
+            }
         }
-    }
-
-    private void printTree(NoClientes no, int nivel) {
-
-        nivel++;
-        if (no.getEsquerda() != null) {
-            printTree(no.getEsquerda(), nivel);
-        }
-        if (no.getDireita() != null) {
-
-            printTree(no.getDireita(), nivel);
-        }
-        System.out.println("Nivel[" + nivel + "]Codigo:" + no.getCliente().getCodigo_unico());
     }
 
     public void CaminhamentoCentral() {

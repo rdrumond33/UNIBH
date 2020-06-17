@@ -38,7 +38,7 @@ public class ArvoreBinariaProdutos {
         } else if (produto.getCodigo_unico() > p.getProduto().getCodigo_unico()) {
             p.setDireita(Insere(produto, p.getDireita()));
         } else {
-            System.out.println("Erro: Id já pertence a algum livro.");
+            System.out.println("Erro: Codigo unico " + produto.getCodigo_unico() + " pertence a algum Produto. ");
         }
         return p;
     }
@@ -109,6 +109,9 @@ public class ArvoreBinariaProdutos {
         }
     }
 
+    // melhor caso: 1 
+    // medio caso: n+2?2
+    // pior caso: n + 1
     public boolean Atualizar(Produtos p) {
         if (this.Raiz.getProduto().getCodigo_unico() == p.getCodigo_unico()) {
             this.Raiz.setProduto(p);
@@ -284,18 +287,6 @@ public class ArvoreBinariaProdutos {
         }
     }
 
-    private void printTree(NoProdutos no) {
-
-        if (no.getEsquerda() != null) {
-            printTree(no.getEsquerda());
-        }
-        System.out.println("Codigo: " + no.getProduto().getCodigo_unico() + " Nome: " + no.getProduto().getNome() + " Setor: " + no.getProduto().getSetor() + " Qtd: " + no.getProduto().getQtd() + " Valor: " + no.getProduto().getValor());
-        if (no.getDireita() != null) {
-
-            printTree(no.getDireita());
-        }
-    }
-
     public void CaminhamentoCentral() {
         this.CaminhamentoCentral(this.Raiz);
     }
@@ -314,6 +305,9 @@ public class ArvoreBinariaProdutos {
         this.interacoesMoviemntacao = interacoesMoviemntacao;
     }
 
+    // Melhor Caso: 2n
+    // Medio Caso: (n*(2n+n))/2
+    // Pior Caso: n^2+n
     public ArvoreBinariaProdutos ordenarQuickShort() {
 
         ArrayList<Produtos> clone_p = this.clone();
@@ -326,6 +320,9 @@ public class ArvoreBinariaProdutos {
         return a;
     }
 
+    // Melhor Caso: n
+    // Medio Caso: n^2+n/2
+    // Pior Caso: n^2
     public void quickSort(ArrayList<Produtos> v, int esq, int dir) {
         if (esq < dir) {
             int j = separer(v, esq, dir);
